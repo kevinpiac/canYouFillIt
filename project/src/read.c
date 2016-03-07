@@ -1,45 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solve.c                                            :+:      :+:    :+:   */
+/*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/06 16:25:00 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/07 15:14:17 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/03/07 10:03:23 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/03/07 15:54:43 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-size_t		solve_getsqsize(unsigned int *t, unsigned int nbr)
+void	read_file(char *file, unsigned int *tab)
 {
-	int				i;
-	unsigned int	n;
-	unsigned int	y;
-	unsigned int	x;
+	int		fd;
+	int		ret;
+	char	buf[20];
 
-	n = 0;
-	while (n < nbr)
+	if ((fd = open(file, O_RDONLY)) != -1)
 	{
-		i = 7;
-		x = 0;
-		y = 0;
-		while (i > 0)
+		while ((ret = read(fd, buf, 20)))
 		{
-			if (ft_bitgetfour(t[n], i) > x)
-				x = ft_bitgetfour(t[n], i);
-
-			if (ft_bitgetfour(t[n], i - 1) > y)
-				y = ft_bitgetfour(t[n], i - 1);
-			i--;
+			check_buf(buf);
+			(void)tab;
 		}
-		n++;
+		//print_error
 	}
-	return ((x > y)? x : y);
+	//check_buf;
 }
 
-void		solve_print()
-{
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+

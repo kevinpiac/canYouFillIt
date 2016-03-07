@@ -6,7 +6,7 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:06:24 by kpiacent          #+#    #+#              #
-#    Updated: 2016/03/06 16:29:56 by kpiacent         ###   ########.fr        #
+#    Updated: 2016/03/07 15:49:04 by kpiacent         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -16,7 +16,7 @@ NAME = fillit
 L_DIR = libs/libft
 F_DIR = src
 H_DIR = src
-FILES = $(F_DIR)/main.c $(F_DIR)/move.c $(F_DIR)/pos.c $(F_DIR)/debug.c $(F_DIR)/print.c $(F_DIR)/solve.c
+FILES = $(F_DIR)/main.c $(F_DIR)/move.c $(F_DIR)/pos.c $(F_DIR)/debug.c $(F_DIR)/print.c $(F_DIR)/solve.c $(F_DIR)/check.c $(F_DIR)/read.c
 
 TMP = Makefile~  $(F_DIR)/header.h~ $(NAME)~ $(FILES:.c=.c~)
 

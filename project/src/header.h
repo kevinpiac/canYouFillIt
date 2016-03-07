@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:37:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/07 10:44:17 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/07 15:53:43 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HEADER_H
 
 # include "libft.h"
+# include "fcntl.h"
 
 /*
 **    MOVE.C / FUNCTIONS TO MOVE
@@ -49,6 +50,18 @@ void	print_result(unsigned int *t, unsigned int nbr);
 */
 
 size_t	solve_getsqsize(unsigned int *t, unsigned int nbr);
+
+/*
+**    READ.C
+*/
+
+void	read_file(char *file, unsigned int *tab);
+
+/*
+**    CHECK.c
+*/
+
+int		check_buf(char *buf);
 
 #endif
 

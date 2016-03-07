@@ -6,33 +6,14 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 15:49:06 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/06 16:31:53 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/07 10:44:47 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	print_result(unsigned int *t, size_t nbr)
+void	print_result(unsigned int *t, unsigned int nbr)
 {
 	(void)t;
 	(void)nbr;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
