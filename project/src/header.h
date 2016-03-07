@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:37:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/06 16:31:01 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/07 10:44:17 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,30 @@ void	debug_coordinates(unsigned int t);
 **    PRINT.C
 */
 
-void	print_result(unsigned int *t, size_t nbr);
+void	print_result(unsigned int *t, unsigned int nbr);
+
+/*
+**    SOLVE.C
+*/
+
+size_t	solve_getsqsize(unsigned int *t, unsigned int nbr);
 
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
