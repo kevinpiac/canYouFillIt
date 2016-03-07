@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 16:25:00 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/07 10:50:22 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/07 11:31:11 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ size_t		solve_getsqsize(unsigned int *t, unsigned int nbr)
 		}
 		n++;
 	}
-	if (x > y)
-		return (x);
-	return (y);
+	return ((x > y)? x : y);
+}
+
+void		solve_print()
+{
+
 }
