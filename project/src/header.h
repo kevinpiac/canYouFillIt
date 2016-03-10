@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:37:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/07 17:37:04 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/10 17:15:24 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,26 +61,6 @@ void	read_file(char *file, unsigned int *tab);
 **    CHECK.c
 */
 
-int		check_buf(char *buf);
-int		check_buf_content(char *buf);
-int		check_buf_end(char *buf);
+int		check_buf(char *buf, int size);
 
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
