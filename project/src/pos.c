@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:46:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/11 11:53:04 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/11 15:11:29 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int				pos_isfree(unsigned int *tab, unsigned int index, size_t size)
 {
 	size_t			i;
 
-	i = 0;
+	i = 1;
 	while (i < size)
 	{
 		ft_bitprint(pos_cmp(tab[index], tab[i]));

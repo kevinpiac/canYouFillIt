@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:37:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/11 11:55:06 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/11 15:49:06 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void			move_up(unsigned int *t);
 void			move_left(unsigned int *t);
 void			move_right(unsigned int *t);
 void			move_topleft(unsigned int *t);
+void			move_toleft(unsigned int *t);
 
 /*
 **    POS.C / FUNCTIONS TO CHECK POSITIONS
@@ -51,6 +52,9 @@ void			print_result(unsigned int *t);
 */
 
 size_t			solve_getsqsize(unsigned int *t, unsigned int nbr);
+int				solve_set(unsigned int *tab, int index);
+void			solve_setminsq(unsigned int *tab);
+void			solve(unsigned int i, unsigned int *tab);
 
 /*
 **    READ.C
@@ -59,6 +63,7 @@ size_t			solve_getsqsize(unsigned int *t, unsigned int nbr);
 int				read_file(char *file, unsigned int *tab);
 unsigned int	read_buftoint(char *buf);
 void			read_addtotab(unsigned int t, unsigned int *tab);
+
 /*
 **    CHECK.c
 */
@@ -66,3 +71,7 @@ void			read_addtotab(unsigned int t, unsigned int *tab);
 int				check_buf(char *buf, int size);
 
 #endif
+
+
+
+
