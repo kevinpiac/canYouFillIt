@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:31:15 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/11 18:30:39 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/11 19:18:51 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,22 @@ void	move_up(unsigned int *t)
 	}
 }
 
-void	move_nxtl(unsigned int *t);
+void	move_nxtl(unsigned int *t)
+{
+	unsigned int	tmp;
+
+	tmp = *t;
+	while (ft_bitgetfour(tmp, 6))
+	{
+		move_left(&tmp);
+		move_left(t);
+	}
+	move_down(t);
+}
 
 void	move_topleft(unsigned int *t)
 {
-	unsigned int	tmp;
+	unsigned int tmp;
 
 	tmp = *t;
 	while (ft_bitgetfour(tmp, 6))
@@ -78,3 +89,5 @@ void	move_topleft(unsigned int *t)
 		move_up(t);
 	}
 }
+
+

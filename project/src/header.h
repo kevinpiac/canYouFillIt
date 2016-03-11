@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:37:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/11 18:12:25 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/11 19:59:41 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void			move_left(unsigned int *t);
 void			move_right(unsigned int *t);
 void			move_topleft(unsigned int *t);
 void			move_toleft(unsigned int *t);
+void			move_nxtl(unsigned int *t);
 
 /*
 **    POS.C / FUNCTIONS TO CHECK POSITIONS
@@ -52,7 +53,7 @@ void			print_result(unsigned int *t);
 */
 
 size_t			solve_getsqsize(unsigned int *t, unsigned int nbr);
-int				solve_set(unsigned int *tab, int index);
+int				solve_set(unsigned int *tab, unsigned int index);
 void			solve_setminsq(unsigned int *tab);
 void			solve(unsigned int i, unsigned int *tab);
 

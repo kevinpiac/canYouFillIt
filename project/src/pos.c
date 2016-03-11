@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:46:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/11 18:11:05 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/11 19:37:24 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ int		pos_isfree(unsigned int *tab, int index)
 	int		y;
 
 	i = 7;
-	while (i)
+	while (i >= 0)
 	{
 		x = ft_bitgetfour(tab[index], i);
-		y = ft_bitgetfour(tab[index], i);
+		y = ft_bitgetfour(tab[index], i - 1);
 		if (pos_getindex(tab, x, y) > 0 && pos_getindex(tab, x, y) < index)
 			return (0);
 		i -= 2;
