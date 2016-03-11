@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 10:03:23 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/10 18:45:14 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/11 08:47:15 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,24 @@ int				read_file(char *file, unsigned int *tab)
 				ft_putstr_fd("error\n", 0);
 				return (-1);
 			}
-			(void)tab;
-			ft_putnbr(read_buftoint(buf));
-			ft_putstr("\n");
-			ft_bitprint(read_buftoint(buf));
-
+			read_addtotab(read_buftoint(buf), tab);
 			size = 21;
 		}
 		return (1);
 	}
 	return (-1);
+}
+
+/*
+** Considering that the unsigned int *tab wad bzeroed before.
+*/
+
+void			read_addtotab(unsigned int t, unsigned int *tab)
+{
+	tab++;
+	while (*tab != 0)
+		tab++;
+	*tab = t;
 }
 
 unsigned int	read_buftoint(char *buf)
@@ -62,13 +70,12 @@ unsigned int	read_buftoint(char *buf)
 			ft_bitsetfour(&t, y, i - 1);
 			i -= 2;
 		}
+		y++;
 		if (*buf == '\n')
 		{
 			x++;
 			y = 0;
 		}
-		else
-			y++;
 		buf++;
 	}
 	return (t);

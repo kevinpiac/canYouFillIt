@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:37:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/10 18:29:31 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/11 11:55:06 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void			move_topleft(unsigned int *t);
 
 int				pos_cmp(unsigned int t1, unsigned int t2);
 int				pos_isfree(unsigned int *tab, unsigned int index, size_t size);
+unsigned int	pos_getindex(unsigned int *t, unsigned int x, unsigned int y);
 
 /*
 **    DEBUG.C
@@ -43,7 +44,7 @@ void			debug_coordinates(unsigned int t);
 **    PRINT.C
 */
 
-void			print_result(unsigned int *t, unsigned int nbr);
+void			print_result(unsigned int *t);
 
 /*
 **    SOLVE.C
@@ -57,6 +58,7 @@ size_t			solve_getsqsize(unsigned int *t, unsigned int nbr);
 
 int				read_file(char *file, unsigned int *tab);
 unsigned int	read_buftoint(char *buf);
+void			read_addtotab(unsigned int t, unsigned int *tab);
 /*
 **    CHECK.c
 */
