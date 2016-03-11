@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:37:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/11 15:49:06 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/11 18:12:25 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void			move_toleft(unsigned int *t);
 */
 
 int				pos_cmp(unsigned int t1, unsigned int t2);
-int				pos_isfree(unsigned int *tab, unsigned int index, size_t size);
-unsigned int	pos_getindex(unsigned int *t, unsigned int x, unsigned int y);
+int				pos_isfree(unsigned int *tab, int index);
+int				pos_getindex(unsigned int *t, unsigned int x, unsigned int y);
 
 /*
 **    DEBUG.C

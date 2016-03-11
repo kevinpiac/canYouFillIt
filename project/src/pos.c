@@ -6,33 +6,36 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:46:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/11 15:11:29 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/11 18:11:05 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "header.h"
 
 int				pos_cmp(unsigned int t1, unsigned int t2 )
 {
 	return (t1 & t2);
 }
 
-int				pos_isfree(unsigned int *tab, unsigned int index, size_t size)
+int		pos_isfree(unsigned int *tab, int index)
 {
-	size_t			i;
+	int		i;
+	int		x;
+	int		y;
 
-	i = 1;
-	while (i < size)
+	i = 7;
+	while (i)
 	{
-		ft_bitprint(pos_cmp(tab[index], tab[i]));
-		if (i != index && pos_cmp(tab[index], tab[i]))
+		x = ft_bitgetfour(tab[index], i);
+		y = ft_bitgetfour(tab[index], i);
+		if (pos_getindex(tab, x, y) > 0 && pos_getindex(tab, x, y) < index)
 			return (0);
-		i++;
+		i -= 2;
 	}
 	return (1);
 }
 
-unsigned int	pos_getindex(unsigned int *t, unsigned int x, unsigned int y)
+int		pos_getindex(unsigned int *t, unsigned int x, unsigned int y)
 {
 	unsigned int	i;
 	unsigned int	j;

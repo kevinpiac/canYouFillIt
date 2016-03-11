@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 16:25:00 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/11 16:29:33 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/11 18:12:04 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int			solve_set(unsigned int *tab, int i)
 		move_toleft(&tab[i]);
 		while (y < min_sq)
 		{
-			if (pos_isfree(tab, i, i))
+			if (pos_isfree(tab, i))
 				return (1);
 			move_right(&tab[i]);
 			y++;
