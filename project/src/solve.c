@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 16:25:00 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/12 15:07:28 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/12 16:06:19 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,24 +82,31 @@ int		solve_getmaxbottom(unsigned int t)
 }
 #include <stdio.h>
 
-void	solve(unsigned int i, unsigned int *tab)
+void	solve(unsigned int *tab, unsigned int i)
 {
-	if (tab[i] == 0)
+	if (i == 0)
+		return (solve(tab, i + 1));
+	if (!tab[i])
 		return ;
-	if (i == 0 || solve_set(tab, i))
-		return (solve(i + 1, tab));
-	else if (!solve_set(tab, i) && i == 1)
+	if (solve_set(tab, i))
+	{
+		printf("FORWAAAARD\n");
+		return (solve(tab, i + 1));
+
+	}
+	if (!solve_set(tab, i) && i == 1)
 	{
 		tab[0]++;
-		move_topleft(&tab[i]);
-		if (pos_isfree(tab, tab[i], i))
-		{
-			return (solve(i + 1, tab));
-		}
-		return (solve(i, tab));
+		move_topleft(&tab[1]);
+		return (solve(tab, i));
 	}
 	else
-		return (solve(i - 1, tab));
+	{
+		printf("BACKKK\n");
+		return (solve(tab, i - 1));
+
+	}
+
 }
 
 
@@ -115,9 +122,13 @@ int			solve_set(unsigned int *tab, unsigned int i)
 	max_sq = tab[0];
 	tetcp = tab[i];
 	if (pos_isfree(tab, tab[i], i) && ft_bitgetoctal(tab[i], 3) != 0)
+	{
+		printf("1111111111\n");
 		flag = 1;
+	}
 	while (!pos_isfree(tab, tetcp, i) || flag)
 	{
+			printf("2222222222\n");
 		flag = 0;
 		x = solve_getmaxbottom(tetcp);
 		y = solve_getmaxright(tetcp);
@@ -128,8 +139,13 @@ int			solve_set(unsigned int *tab, unsigned int i)
 		else
 			return (0);
 	}
-	if (x >= max_sq || y >= max_sq)
+	if (solve_getmaxbottom(tetcp) >= max_sq || solve_getmaxright(tetcp) >= max_sq)
+	{
+		printf("33333333333\n");
 		return (0);
+
+	}
 	tab[i] = tetcp;
+	printf("4444444444444444\n");
 	return (1);
 }
