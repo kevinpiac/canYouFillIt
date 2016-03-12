@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 16:25:00 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/12 20:42:43 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/12 21:16:40 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		solve(unsigned int *tab, unsigned int i)
 {
 	int		res;
 	printf("-----------------------------  i-> %d\n", i);
+		print_result(tab);
 
 
 	if (tab[i] == 0)
@@ -51,7 +52,7 @@ int			solve_set(unsigned int *tab, unsigned int i)
 	flag = 0;
 	max_sq = tab[0];
 	tetcp = tab[i];
-	if (ft_bitgetoctal(tab[i], 3) != 0 || tab[23] == 0)
+	if ((pos_getborder(tab[i], "left") != 0 && pos_getborder(tab[i], "top") != 0) || tab[23] == 0)
 	{
 		printf("IS FREE AND DIFF 0\n");
 		flag = 1;

@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:31:15 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/12 20:37:30 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/12 21:00:44 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	move_nxtl(unsigned int *t)
 	unsigned int	tmp;
 
 	tmp = *t;
-	while (ft_bitgetfour(tmp, 6))
+	while (pos_getborder(tmp, "left"))
 	{
 		move(&tmp, "left");
 		move(t, "left");
