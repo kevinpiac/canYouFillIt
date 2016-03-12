@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:31:15 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/11 19:18:51 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/12 11:48:47 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,14 @@ void	move_topleft(unsigned int *t)
 	}
 }
 
+void	move_resetall(unsigned int *tab)
+{
+	int		i;
 
+	i = 1;
+	while (tab[i])
+	{
+		move_topleft(&tab[i]);
+		i++;
+	}
+}

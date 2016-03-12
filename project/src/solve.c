@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 16:25:00 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/11 20:16:05 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/12 12:01:23 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int		solve_getmaxbottom(unsigned int t)
 	}
 	return (x);
 }
+#include <stdio.h>
 
 void	solve(unsigned int i, unsigned int *tab)
 {
@@ -87,43 +88,59 @@ void	solve(unsigned int i, unsigned int *tab)
 		return ;
 	if (i == 0 || solve_set(tab, i))
 		return (solve(i + 1, tab));
+	else if (!solve_set(tab, i) && i == 1)
+	{
+		tab[0]++;
+		move_resetall(tab);
+		printf("POS IS FREE ? -> %d\n", pos_isfree(tab, tab[i], i));
+		if (pos_isfree(tab, tab[i], i))
+		{
+			return (solve(i + 1, tab));
+		}
+		return (solve(i, tab));
+	}
 	else
 		return (solve(i - 1, tab));
 }
 
-#include <stdio.h>
 
 int			solve_set(unsigned int *tab, unsigned int i)
 {
 	int		x;
 	int		y;
 	int		max_sq;
+	unsigned int	tetcp;
 
 	y = solve_getmaxright(tab[i]);
 	x = solve_getmaxbottom(tab[i]);
-//	x = 0;
-	max_sq = 2;
-	printf("Y: %d\n", y);
-	printf("X: %d\n", x);
-	printf("Max sq: %d\n\n----\n", max_sq);
-	while (x < max_sq - 1)
+	max_sq = tab[0];
+
+	while (x < max_sq)
 	{
-		while (y < max_sq - 1)
+		while (y + 1 < max_sq)
 		{
-			move_right(&tab[i]);
-			if (pos_isfree(tab, i))
+			tetcp = tab[i];
+			move_right(&tetcp);
+			if (pos_isfree(tab, tetcp, i))
+			{
+				move_right(&tab[i]);
+				print_result(tab);
+				ft_putchar('\n');
 				return (1);
+			}
 			y++;
 		}
-		move_nxtl(&tab[i]);
+		tetcp = tab[i];
+		move_nxtl(&tetcp);
+		if (pos_isfree(tab, tetcp, i) && x + 1 < max_sq)
+		{
+			move_nxtl(&tab[i]);
+			print_result(tab);
+			ft_putchar('\n');
+			return (1);
+		}
 		x++;
 		y = 0;
 	}
 	return (0);
 }
-
-
-
-
-
-

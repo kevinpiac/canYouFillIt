@@ -6,29 +6,35 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:46:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/11 19:37:24 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/12 11:57:30 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int				pos_cmp(unsigned int t1, unsigned int t2 )
+int		pos_cmp(unsigned int t1, unsigned int t2 )
 {
 	return (t1 & t2);
 }
 
-int		pos_isfree(unsigned int *tab, int index)
+/*
+// search if
+*/
+
+int		pos_isfree(unsigned int *tab, unsigned int tet, int index)
 {
 	int		i;
 	int		x;
 	int		y;
+	int		res;
 
 	i = 7;
 	while (i >= 0)
 	{
-		x = ft_bitgetfour(tab[index], i);
-		y = ft_bitgetfour(tab[index], i - 1);
-		if (pos_getindex(tab, x, y) > 0 && pos_getindex(tab, x, y) < index)
+		x = ft_bitgetfour(tet, i);
+		y = ft_bitgetfour(tet, i - 1);
+		res = pos_getindex(tab, x, y);
+		if (res > 0 && res < index)
 			return (0);
 		i -= 2;
 	}
