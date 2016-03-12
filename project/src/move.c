@@ -6,56 +6,28 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:31:15 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/12 11:48:47 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/12 20:37:30 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	move_right(unsigned int *t)
+void	move(unsigned int *t, char *direction)
 {
 	int		i;
+	int		sign;
 
-	i = 6;
+	if (!ft_strcmp(direction, "down") || !ft_strcmp(direction, "right"))
+		sign = 1;
+	else
+		sign = -1;
+	if (!ft_strcmp(direction, "left") || !ft_strcmp(direction, "right"))
+		i = 6;
+	else
+		i = 7;
 	while (i >= 0)
 	{
-		ft_bitsetfour(t, ft_bitgetfour(*t, i) + 1, i);
-		i -= 2;
-	}
-}
-
-void	move_left(unsigned int *t)
-{
-	int		i;
-
-	i = 6;
-	while (i >= 0)
-	{
-		ft_bitsetfour(t, ft_bitgetfour(*t, i) - 1, i);
-		i -= 2;
-	}
-}
-
-void	move_down(unsigned int *t)
-{
-	int		i;
-
-	i = 7;
-	while (i > 0)
-	{
-		ft_bitsetfour(t, ft_bitgetfour(*t, i) + 1, i);
-		i -= 2;
-	}
-}
-
-void	move_up(unsigned int *t)
-{
-	int		i;
-
-	i = 7;
-	while (i > 0)
-	{
-		ft_bitsetfour(t, ft_bitgetfour(*t, i) - 1, i);
+		ft_bitsetfour(t, ft_bitgetfour(*t, i) + sign, i);
 		i -= 2;
 	}
 }
@@ -67,10 +39,10 @@ void	move_nxtl(unsigned int *t)
 	tmp = *t;
 	while (ft_bitgetfour(tmp, 6))
 	{
-		move_left(&tmp);
-		move_left(t);
+		move(&tmp, "left");
+		move(t, "left");
 	}
-	move_down(t);
+	move(t, "down");
 }
 
 void	move_topleft(unsigned int *t)
@@ -78,15 +50,15 @@ void	move_topleft(unsigned int *t)
 	unsigned int tmp;
 
 	tmp = *t;
-	while (ft_bitgetfour(tmp, 6))
+	while (pos_getborder(tmp, "left"))
 	{
-		move_left(&tmp);
-		move_left(t);
+		move(&tmp, "left");
+		move(t, "left");
 	}
-	while (ft_bitgetfour(tmp, 7))
+	while (pos_getborder(tmp, "top"))
 	{
-		move_up(&tmp);
-		move_up(t);
+		move(&tmp, "up");
+		move(t, "up");
 	}
 }
 

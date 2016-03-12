@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:46:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/12 11:57:30 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/12 20:37:44 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,33 @@ int		pos_getindex(unsigned int *t, unsigned int x, unsigned int y)
 		i++;
 	}
 	return (0);
+}
+
+int		pos_getborder(unsigned int t, char *border)
+{
+	int					i;
+	unsigned int		x;
+
+	if (!ft_strcmp(border, "right") || !ft_strcmp(border, "left"))
+		i = 6;
+	else
+		i = 7;
+	x = ft_bitgetfour(t, i);
+	if (!ft_strcmp(border, "right") || !ft_strcmp(border, "bottom"))
+	{
+		while (i >= 0)
+		{
+			if (ft_bitgetfour(t, i) > x)
+				x = ft_bitgetfour(t, i);
+			i -= 2;
+		}
+		return (x);
+	}
+	while (i >= 0)
+	{
+		if (ft_bitgetfour(t, i) < x)
+			x = ft_bitgetfour(t, i);
+		i -= 2;
+	}
+	return (x);
 }
