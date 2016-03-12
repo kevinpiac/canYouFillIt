@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 16:25:00 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/12 17:51:12 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/12 18:39:18 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,24 +85,26 @@ int		solve_getmaxbottom(unsigned int t)
 int		solve(unsigned int *tab, unsigned int i)
 {
 	int		res;
-	printf("-----------------------------  i-> %d\n", i);
+//	printf("-----------------------------  i-> %d\n", i);
 
-	res = solve_set(tab, i);
-	if (!tab[i])
+
+	if (tab[i] == 0)
 		return (1);
+	res = solve_set(tab, i);
 	if (!res && i == 1)
 	{
-		printf("ONE!!!!\n");
 		tab[0]++;
-		move_topleft(&tab[1]);
+//		printf("INCREASE --> %d\n", tab[0]);
+		tab[23] = 1;
+		move_resetall(tab);
 		return (solve(tab, i));
 	}
 	if (res)
 	{
-		printf("FORWAAAARD\n");
+//		printf("FORWAAAARD\n");
 		return (solve(tab, i + 1));
 	}
-	printf("BACKKK\n");
+//	printf("BACKKK\n");
 	return (solve(tab, i - 1));
 }
 
@@ -117,14 +119,16 @@ int			solve_set(unsigned int *tab, unsigned int i)
 	flag = 0;
 	max_sq = tab[0];
 	tetcp = tab[i];
-	if (pos_isfree(tab, tab[i], i) && ft_bitgetoctal(tab[i], 3) != 0)
+	if (ft_bitgetoctal(tab[i], 3) != 0 || tab[23] == 0)
 	{
-		printf("IS FREE AND DIFF 0\n");
+//		//printf("IS FREE AND DIFF 0\n");
 		flag = 1;
 	}
+	if (tab[23] == 1)
+		tab[23] = 0;
 	while (!pos_isfree(tab, tetcp, i) || flag)
 	{
-		printf("NOT FREE\n");
+		//printf("NOT FREE\n");
 		flag = 0;
 		x = solve_getmaxbottom(tetcp);
 		y = solve_getmaxright(tetcp);
@@ -137,10 +141,10 @@ int			solve_set(unsigned int *tab, unsigned int i)
 	}
 	if (solve_getmaxbottom(tetcp) >= max_sq || solve_getmaxright(tetcp) >= max_sq)
 	{
-		printf("TOO BIG\n");
+		//printf("TOO BIG\n");
 		return (0);
 	}
 	tab[i] = tetcp;
-	printf("OK PLACED\n");
+	//printf("OK PLACED\n");
 	return (1);
 }
