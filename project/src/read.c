@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 10:03:23 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/11 08:47:15 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/12 13:20:11 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ unsigned int	read_buftoint(char *buf)
 	x = 0;
 	y = 0;
 	i = 7;
+	*buf == '\n' ? buf++ : buf;
 	while (*buf)
 	{
 		if (*buf == '#')

@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 16:25:00 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/12 12:01:23 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/12 15:07:28 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,7 @@ void	solve(unsigned int i, unsigned int *tab)
 	else if (!solve_set(tab, i) && i == 1)
 	{
 		tab[0]++;
-		move_resetall(tab);
-		printf("POS IS FREE ? -> %d\n", pos_isfree(tab, tab[i], i));
+		move_topleft(&tab[i]);
 		if (pos_isfree(tab, tab[i], i))
 		{
 			return (solve(i + 1, tab));
@@ -106,41 +105,31 @@ void	solve(unsigned int i, unsigned int *tab)
 
 int			solve_set(unsigned int *tab, unsigned int i)
 {
-	int		x;
-	int		y;
-	int		max_sq;
+	int				x;
+	int				y;
+	int				max_sq;
+	int				flag;
 	unsigned int	tetcp;
 
-	y = solve_getmaxright(tab[i]);
-	x = solve_getmaxbottom(tab[i]);
+	flag = 0;
 	max_sq = tab[0];
-
-	while (x < max_sq)
+	tetcp = tab[i];
+	if (pos_isfree(tab, tab[i], i) && ft_bitgetoctal(tab[i], 3) != 0)
+		flag = 1;
+	while (!pos_isfree(tab, tetcp, i) || flag)
 	{
-		while (y + 1 < max_sq)
-		{
-			tetcp = tab[i];
+		flag = 0;
+		x = solve_getmaxbottom(tetcp);
+		y = solve_getmaxright(tetcp);
+		if (y + 1 < max_sq)
 			move_right(&tetcp);
-			if (pos_isfree(tab, tetcp, i))
-			{
-				move_right(&tab[i]);
-				print_result(tab);
-				ft_putchar('\n');
-				return (1);
-			}
-			y++;
-		}
-		tetcp = tab[i];
-		move_nxtl(&tetcp);
-		if (pos_isfree(tab, tetcp, i) && x + 1 < max_sq)
-		{
-			move_nxtl(&tab[i]);
-			print_result(tab);
-			ft_putchar('\n');
-			return (1);
-		}
-		x++;
-		y = 0;
+		else if (y + 1 >= max_sq && x + 1 <= max_sq)
+			move_nxtl(&tetcp);
+		else
+			return (0);
 	}
-	return (0);
+	if (x >= max_sq || y >= max_sq)
+		return (0);
+	tab[i] = tetcp;
+	return (1);
 }
