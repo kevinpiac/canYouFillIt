@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 16:25:00 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/12 16:06:19 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/12 17:51:12 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,33 +82,29 @@ int		solve_getmaxbottom(unsigned int t)
 }
 #include <stdio.h>
 
-void	solve(unsigned int *tab, unsigned int i)
+int		solve(unsigned int *tab, unsigned int i)
 {
-	if (i == 0)
-		return (solve(tab, i + 1));
-	if (!tab[i])
-		return ;
-	if (solve_set(tab, i))
-	{
-		printf("FORWAAAARD\n");
-		return (solve(tab, i + 1));
+	int		res;
+	printf("-----------------------------  i-> %d\n", i);
 
-	}
-	if (!solve_set(tab, i) && i == 1)
+	res = solve_set(tab, i);
+	if (!tab[i])
+		return (1);
+	if (!res && i == 1)
 	{
+		printf("ONE!!!!\n");
 		tab[0]++;
 		move_topleft(&tab[1]);
 		return (solve(tab, i));
 	}
-	else
+	if (res)
 	{
-		printf("BACKKK\n");
-		return (solve(tab, i - 1));
-
+		printf("FORWAAAARD\n");
+		return (solve(tab, i + 1));
 	}
-
+	printf("BACKKK\n");
+	return (solve(tab, i - 1));
 }
-
 
 int			solve_set(unsigned int *tab, unsigned int i)
 {
@@ -123,12 +119,12 @@ int			solve_set(unsigned int *tab, unsigned int i)
 	tetcp = tab[i];
 	if (pos_isfree(tab, tab[i], i) && ft_bitgetoctal(tab[i], 3) != 0)
 	{
-		printf("1111111111\n");
+		printf("IS FREE AND DIFF 0\n");
 		flag = 1;
 	}
 	while (!pos_isfree(tab, tetcp, i) || flag)
 	{
-			printf("2222222222\n");
+		printf("NOT FREE\n");
 		flag = 0;
 		x = solve_getmaxbottom(tetcp);
 		y = solve_getmaxright(tetcp);
@@ -141,11 +137,10 @@ int			solve_set(unsigned int *tab, unsigned int i)
 	}
 	if (solve_getmaxbottom(tetcp) >= max_sq || solve_getmaxright(tetcp) >= max_sq)
 	{
-		printf("33333333333\n");
+		printf("TOO BIG\n");
 		return (0);
-
 	}
 	tab[i] = tetcp;
-	printf("4444444444444444\n");
+	printf("OK PLACED\n");
 	return (1);
 }

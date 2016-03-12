@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:37:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/12 15:43:07 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/12 16:42:58 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void			print_result(unsigned int *t);
 size_t			solve_getsqsize(unsigned int *t, unsigned int nbr);
 int				solve_set(unsigned int *tab, unsigned int index);
 void			solve_setminsq(unsigned int *tab);
-void			solve(unsigned int *tab, unsigned int i);
+int				solve(unsigned int *tab, unsigned int i);
 
 /*
 **    READ.C
