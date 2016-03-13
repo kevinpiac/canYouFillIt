@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:37:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/13 11:00:47 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/13 13:01:33 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void			print_result(unsigned int *t);
 */
 
 int				solve_set(unsigned int *tab, unsigned int index, int retry);
-int				solve(unsigned int *tab, unsigned int i, int retry);
+void			solve(unsigned int *tab, unsigned int i, int retry);
 
 /*
 **    READ.C
@@ -67,7 +67,3 @@ void			read_addtotab(unsigned int t, unsigned int *tab);
 int				check_buf(char *buf, int size);
 
 #endif
-
-
-
-
