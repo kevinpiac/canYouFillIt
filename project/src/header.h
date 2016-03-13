@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:37:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/12 20:14:21 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/13 11:00:47 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,7 @@
 **    MOVE.C / FUNCTIONS TO MOVE
 */
 void			move(unsigned int *t, char *direction);
-void			move_down(unsigned int *t);
-void			move_up(unsigned int *t);
-void			move_left(unsigned int *t);
-void			move_right(unsigned int *t);
 void			move_topleft(unsigned int *t);
-void			move_toleft(unsigned int *t);
 void			move_nxtl(unsigned int *t);
 void			move_resetall(unsigned int *tab);
 
@@ -54,9 +49,8 @@ void			print_result(unsigned int *t);
 **    SOLVE.C
 */
 
-int				solve_set(unsigned int *tab, unsigned int index);
-void			solve_setminsq(unsigned int *tab);
-int				solve(unsigned int *tab, unsigned int i);
+int				solve_set(unsigned int *tab, unsigned int index, int retry);
+int				solve(unsigned int *tab, unsigned int i, int retry);
 
 /*
 **    READ.C
@@ -73,3 +67,7 @@ void			read_addtotab(unsigned int t, unsigned int *tab);
 int				check_buf(char *buf, int size);
 
 #endif
+
+
+
+
