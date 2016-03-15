@@ -6,16 +6,11 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:46:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/15 13:57:35 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/03/15 16:37:37 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-unsigned int	pos_cmp(unsigned int t1, unsigned int t2)
-{
-	return (t1 & t2);
-}
 
 int		pos_isfree(unsigned int *tab, unsigned int tet, int index)
 {

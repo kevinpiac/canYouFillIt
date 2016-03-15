@@ -6,7 +6,7 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:06:24 by kpiacent          #+#    #+#              #
-#    Updated: 2016/03/07 15:49:04 by kpiacent         ###   ########.fr        #
+#    Updated: 2016/03/15 16:42:55 by kpiacent         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -23,14 +23,16 @@ TMP = Makefile~  $(F_DIR)/header.h~ $(NAME)~ $(FILES:.c=.c~)
 all : $(NAME)
 
 $(NAME) :
-		CC -o $(NAME) $(FLAGS) $(FILES) -I $(L_DIR) -L $(L_DIR) -lft
+		@CC -o $(NAME) $(FLAGS) $(FILES) -I $(L_DIR) -L $(L_DIR) -lft
+		@echo "Complilation: \t\t\tDONE!"
 
 clean :
-		rm -f $(TMP)
+		@rm -f $(TMP)
+		@echo "Cleaning: \t\t\tDONE!"
 
 fclean : clean
-		rm -f $(NAME)
-
+		@rm -f $(NAME)
+		@echo "Remove the exec: \t\tDONE!"
 test :
 	./$(NAME)
 
