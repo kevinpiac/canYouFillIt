@@ -6,17 +6,17 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:46:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/13 14:32:26 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/15 13:57:35 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int		pos_cmp(unsigned int t1, unsigned int t2)
+unsigned int	pos_cmp(unsigned int t1, unsigned int t2)
 {
 	return (t1 & t2);
 }
-#include <stdio.h>
+
 int		pos_isfree(unsigned int *tab, unsigned int tet, int index)
 {
 	int		i;

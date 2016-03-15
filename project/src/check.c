@@ -6,53 +6,62 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 15:45:49 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/15 11:48:31 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/15 15:22:04 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 #include "t_ref.h"
 
-static const unsigned int t_ref[19] = {3665, 565565};
-
-int		check_buf(char *buf, int size)
+int		check_tab(unsigned int *tab)
 {
-	int		nb_sharp;
-	int		i;
-	int		index;
+	int	i;
+	int	j;
+	int	sharp;
 
-	index = (size == 21) ? (0) : (1);
-	i = 0;
-	nb_sharp = 0;
-	while (buf[i])
+	j = 1;
+	sharp = 0;
+	while (tab[j] != 0)
 	{
-		if (buf[i] == '.' && (i + index) % 5 != 0)
-			i++;
-		else if (buf[i] == '#' && (i + index) % 5 != 0)
+		i = 0;
+		while (i < 19)
 		{
+			if (tab[j] == t_ref[i])
+			{
+				sharp++;
+				break ;
+			}
 			i++;
-			nb_sharp++;
 		}
-		else if (buf[i] == '\n' && (i + index) % 5 == 0)
+		j++;
+	}
+	return ((sharp == j - 1) ? 1 : -1);
+}
+
+int	check_buf(char *buff, int size)
+{
+	size_t	i;
+	size_t	flag;
+	int	nbsharp;
+
+	i = 0;
+	nbsharp = 0;
+	flag = (size == 20) ? 1 : 0;
+	while (buff[i])
+	{
+		if (buff[i] == '#' && nbsharp < 4)
+		{
+			nbsharp++;
+			i++;
+		}
+		else if (((buff[i] == '.' && (i + flag) % 5 != 0)
+					|| ((i + flag) % 5 == 0 && buff[i] == '\n'))
+				&& nbsharp < 5)
 			i++;
 		else
 			return (-1);
 	}
-	if (nb_sharp != 4)
+	if (nbsharp != 4)
 		return (-1);
-	return (1);
-}
-
-int		check_tet(unsigned int t)
-{
-	int		i;
-
-	i = 0;
-	while (i < 19)
-	{
-		if (pos_cmp(t, t_ref[i]) == t)
-			return (1);
-		i++;
-	}
-	return (-1);
+	return ((i == ft_strlen(buff)) ? i : -1);
 }

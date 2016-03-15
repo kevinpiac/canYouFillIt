@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 15:49:06 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/13 13:00:27 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/15 14:32:28 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,9 @@ void	print_result(unsigned int *t)
 		ft_putchar('\n');
 		x++;
 	}
+}
+
+void	print_usage(void)
+{
+	ft_putstr("usage: ./fillit source_file\n");
 }
