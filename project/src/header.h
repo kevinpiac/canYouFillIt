@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 14:37:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/13 13:28:53 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/15 11:39:59 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int				solve(unsigned int *tab, unsigned int i, int retry);
 
 int				read_file(char *file, unsigned int *tab);
 unsigned int	read_buftoint(char *buf);
-void			read_addtotab(unsigned int t, unsigned int *tab);
+int				read_addtotab(unsigned int t, unsigned int *tab);
 
 /*
 **    CHECK.c

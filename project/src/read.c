@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 10:03:23 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/12 13:20:11 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/15 11:41:10 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,16 @@ int				read_file(char *file, unsigned int *tab)
 ** Considering that the unsigned int *tab wad bzeroed before.
 */
 
-void			read_addtotab(unsigned int t, unsigned int *tab)
+int				read_addtotab(unsigned int t, unsigned int *tab)
 {
 	tab++;
 	while (*tab != 0)
 		tab++;
+	move_topleft(&t);
+	if (check_tet(t) == -1)
+		return (-1);
 	*tab = t;
+	return (1);
 }
 
 unsigned int	read_buftoint(char *buf)

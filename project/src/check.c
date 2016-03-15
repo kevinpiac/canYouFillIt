@@ -6,11 +6,14 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 15:45:49 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/10 18:03:09 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/15 11:48:31 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+#include "t_ref.h"
+
+static const unsigned int t_ref[19] = {3665, 565565};
 
 int		check_buf(char *buf, int size)
 {
@@ -38,4 +41,18 @@ int		check_buf(char *buf, int size)
 	if (nb_sharp != 4)
 		return (-1);
 	return (1);
+}
+
+int		check_tet(unsigned int t)
+{
+	int		i;
+
+	i = 0;
+	while (i < 19)
+	{
+		if (pos_cmp(t, t_ref[i]) == t)
+			return (1);
+		i++;
+	}
+	return (-1);
 }
